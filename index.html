@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional portfolio showcasing my work, skills and experience">
-    <meta name="keywords" content="portfolio, web developer, designer, projects">
-    <title>Portfolio | Web Developer & Designer</title>
+    <meta name="description" content="Men0ast - Professional Roblox Script Developer">
+    <meta name="keywords" content="roblox, scripts, luau, anticheat, hacks, roblox exploits">
+    <title>Men0ast | Roblox Scripts Developer</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Font Awesome from CDN -->
@@ -26,10 +26,11 @@
                 <div class="logo">
                     <a href="#hero">
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 5L30 15L20 25L10 15L20 5Z" fill="#6C63FF"/>
+                            <path d="M20 5L30 15L20 25L10 15L20 5Z" fill="#FF6B6B"/>
                             <path d="M20 15L30 25L20 35L10 25L20 15Z" fill="#4A45B5"/>
                         </svg>
-                        <span>Portfolio</span>
+                        <span>Men0ast</span>
+                        <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
                     </a>
                 </div>
                 <div class="menu-toggle" id="mobile-menu">
@@ -40,9 +41,9 @@
                 <ul class="nav-menu">
                     <li><a href="#hero" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#scripts" class="nav-link">Scripts</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="#" class="nav-link btn-primary">Resume</a></li>
+                    <li><a href="#" class="nav-link btn-discord"><i class="fab fa-discord"></i> Discord</a></li>
                 </ul>
             </nav>
         </div>
@@ -51,30 +52,50 @@
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
+            <div class="glitch-effect"></div>
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text reveal-left">
-                        <p class="intro-text">Hello, my name is</p>
-                        <h1>John Doe</h1>
-                        <h2>I build things for the web.</h2>
+                        <div class="badge-container">
+                            <span class="badge official-member">Official Member of RBLXXHEAT</span>
+                            <span class="badge official-creator">Official Creator of SentinelAC</span>
+                            <span class="badge developer">Developer of CarFly Script</span>
+                        </div>
+                        <p class="intro-text">Welcome, I am</p>
+                        <h1 class="glitch-text" data-text="Men0ast">Men0ast</h1>
+                        <h2>Roblox Script Developer</h2>
                         <p class="hero-description">
-                            I'm a web developer specializing in creating exceptional digital experiences.
-                            Currently, I'm focused on building accessible, human-centered products.
+                            Developing cutting-edge Roblox scripts since 2019.
+                            Specializing in Anti-cheat systems, game enhancers, and utility scripts.
                         </p>
                         <div class="hero-buttons">
-                            <a href="#projects" class="btn-primary">View My Work</a>
-                            <a href="#contact" class="btn-secondary">Get In Touch</a>
+                            <a href="#scripts" class="btn-primary"><i class="fas fa-code"></i> View My Scripts</a>
+                            <a href="#contact" class="btn-secondary"><i class="fas fa-envelope"></i> Contact Me</a>
                         </div>
                     </div>
                     <div class="hero-image reveal-right">
-                        <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Developer with laptop illustration -->
-                            <circle cx="200" cy="200" r="150" fill="#F3F4F6"/>
-                            <rect x="120" y="160" width="160" height="100" rx="5" fill="#6C63FF"/>
-                            <rect x="135" y="175" width="130" height="70" rx="2" fill="#F3F4F6"/>
-                            <rect x="165" y="260" width="70" height="10" rx="2" fill="#6C63FF"/>
-                            <path d="M190 120C190 120 150 140 150 170C150 200 170 200 190 210C210 200 230 200 230 170C230 140 190 120 190 120Z" fill="#4A45B5"/>
-                        </svg>
+                        <div class="cube-container">
+                            <div class="cube">
+                                <div class="face front">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="face back">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="face right">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="face left">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div class="face top">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="face bottom">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -99,57 +120,66 @@
                 </div>
                 <div class="about-content">
                     <div class="about-image reveal-left">
-                        <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Person coding illustration -->
-                            <circle cx="200" cy="200" r="150" fill="#F3F4F6"/>
-                            <rect x="120" y="180" width="160" height="100" rx="5" fill="#4A45B5"/>
-                            <rect x="140" y="195" width="120" height="70" rx="2" fill="#F3F4F6"/>
-                            <path d="M155 215L170 230L155 245" stroke="#6C63FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M225 215L210 230L225 245" stroke="#6C63FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M195 210L185 250" stroke="#6C63FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M190 140C190 140 160 150 160 170C160 190 180 200 200 200C220 200 240 190 240 170C240 150 210 140 210 140" fill="#4A45B5"/>
-                        </svg>
+                        <div class="hacker-terminal">
+                            <div class="terminal-header">
+                                <span class="terminal-button red"></span>
+                                <span class="terminal-button yellow"></span>
+                                <span class="terminal-button green"></span>
+                                <span class="terminal-title">men0ast@rblx:~</span>
+                            </div>
+                            <div class="terminal-body">
+                                <div class="line">$ whoami</div>
+                                <div class="line">men0ast - roblox script developer</div>
+                                <div class="line">$ skills</div>
+                                <div class="line">Lua/Luau, Anti-Cheat, Exploits, Game Security</div>
+                                <div class="line">$ experience</div>
+                                <div class="line">4+ years in Roblox scripting</div>
+                                <div class="line">Creator of SentinelAC</div>
+                                <div class="line">Member of RBLXXHEAT</div>
+                                <div class="line">$ current_status</div>
+                                <div class="line">Developing new scripts...</div>
+                                <div class="line blink">_</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="about-text reveal-right">
                         <p>
-                            Hello! I'm John, a passionate web developer with a keen interest in creating beautiful, functional websites. 
-                            My journey in web development began in 2018, and I've been in love with building for the web ever since.
+                            Hey there! I'm <span class="highlight">Men0ast</span>, a passionate Roblox script developer with a focus on creating high-quality scripts that enhance gameplay while maintaining fairness.
                         </p>
                         <p>
-                            I specialize in crafting responsive, user-friendly websites that not only look great but also provide excellent user experience. 
-                            My approach combines clean code, modern design principles, and performance optimization.
+                            I specialize in developing anti-cheat systems that detect and prevent exploitation, as well as utility scripts that improve the overall Roblox experience. My scripts are known for their reliability, performance, and regular updates.
                         </p>
                         <div class="skills">
                             <h3>My Skills</h3>
                             <div class="skills-container">
                                 <div class="skill-item">
-                                    <span class="skill-name">HTML5</span>
+                                    <span class="skill-name">Lua/Luau</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 98%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Anti-Cheat Development</span>
                                     <div class="skill-bar">
                                         <div class="skill-level" style="width: 95%"></div>
                                     </div>
                                 </div>
                                 <div class="skill-item">
-                                    <span class="skill-name">CSS3</span>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">JavaScript</span>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Responsive Design</span>
+                                    <span class="skill-name">Exploit Detection</span>
                                     <div class="skill-bar">
                                         <div class="skill-level" style="width: 92%"></div>
                                     </div>
                                 </div>
                                 <div class="skill-item">
-                                    <span class="skill-name">UI/UX Design</span>
+                                    <span class="skill-name">Script Optimization</span>
                                     <div class="skill-bar">
-                                        <div class="skill-level" style="width: 80%"></div>
+                                        <div class="skill-level" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Security Implementation</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 88%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -159,117 +189,142 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section section">
+        <!-- Scripts Section -->
+        <section id="scripts" class="scripts-section section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">My Projects</h2>
+                    <h2 class="section-title">My Scripts</h2>
                     <div class="section-underline"></div>
                 </div>
-                <div class="projects-filter">
+                <div class="scripts-filter">
                     <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="web">Web Design</button>
-                    <button class="filter-btn" data-filter="app">Applications</button>
-                    <button class="filter-btn" data-filter="other">Other</button>
+                    <button class="filter-btn" data-filter="anticheat">Anti-Cheat</button>
+                    <button class="filter-btn" data-filter="utility">Utility</button>
+                    <button class="filter-btn" data-filter="game">Game Scripts</button>
                 </div>
-                <div class="projects-grid">
-                    <div class="project-card reveal-up" data-category="web">
-                        <div class="project-img">
-                            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="400" height="200" fill="#6C63FF"/>
-                                <path d="M200 50C200 50 150 70 150 100C150 130 180 150 200 150C220 150 250 130 250 100C250 70 200 50 200 50Z" fill="#4A45B5"/>
-                                <rect x="175" y="75" width="50" height="50" rx="5" fill="#F3F4F6"/>
-                                <path d="M185 95L195 105L215 85" stroke="#6C63FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">E-commerce Website</h3>
-                            <p class="project-description">A fully responsive e-commerce website with product filtering, cart functionality, and checkout process.</p>
-                            <div class="project-tech">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
+                <div class="scripts-grid">
+                    <!-- AntiCheat Roblox Script -->
+                    <div class="script-card reveal-up" data-category="anticheat">
+                        <div class="script-header">
+                            <div class="script-title-area">
+                                <h3 class="script-title">AntiCheat Roblox</h3>
+                                <span class="script-version">v1.0.0-BETA</span>
                             </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                            <div class="script-badges">
+                                <span class="script-badge new">NEW</span>
+                                <span class="script-badge verified">VERIFIED</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card reveal-up" data-category="app">
-                        <div class="project-img">
-                            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="400" height="200" fill="#4A45B5"/>
-                                <rect x="100" y="50" width="200" height="100" rx="10" fill="#F3F4F6"/>
-                                <circle cx="200" cy="100" r="30" fill="#6C63FF"/>
-                                <rect x="150" y="140" width="100" height="10" rx="5" fill="#6C63FF"/>
-                            </svg>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Weather Application</h3>
-                            <p class="project-description">A weather app that displays current conditions and forecasts based on user location or search.</p>
-                            <div class="project-tech">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
+                        <div class="script-img">
+                            <div class="script-img-overlay">
+                                <div class="script-img-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                        <div class="script-content">
+                            <p class="script-description">Advanced anti-cheat system for Roblox games. Detects and prevents exploits, speed hacks, and teleportation cheats.</p>
+                            <div class="script-features">
+                                <h4>Features:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Real-time exploit detection</li>
+                                    <li><i class="fas fa-check"></i> Speed hack prevention</li>
+                                    <li><i class="fas fa-check"></i> Teleport detection</li>
+                                    <li><i class="fas fa-check"></i> Auto-ban system</li>
+                                    <li><i class="fas fa-check"></i> Admin dashboard</li>
+                                </ul>
+                            </div>
+                            <div class="script-actions">
+                                <button class="btn-get-script" data-script="print('Loading AntiCheat Roblox v1.0.0-BETA...')\nwait(2)\nprint('Successfully loaded!')">
+                                    <i class="fas fa-download"></i> Get Script
+                                </button>
+                                <span class="script-stat"><i class="fas fa-download"></i> 14.2K</span>
+                                <span class="script-stat"><i class="fas fa-star"></i> 4.8/5</span>
                             </div>
                         </div>
                     </div>
-                    <div class="project-card reveal-up" data-category="web">
-                        <div class="project-img">
-                            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="400" height="200" fill="#6C63FF"/>
-                                <rect x="50" y="50" width="300" height="20" rx="5" fill="#F3F4F6"/>
-                                <rect x="50" y="80" width="200" height="10" rx="5" fill="#F3F4F6"/>
-                                <rect x="50" y="100" width="150" height="10" rx="5" fill="#F3F4F6"/>
-                                <rect x="50" y="130" width="80" height="30" rx="5" fill="#4A45B5"/>
-                                <rect x="140" y="130" width="80" height="30" rx="5" fill="#4A45B5"/>
-                            </svg>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Portfolio Template</h3>
-                            <p class="project-description">A customizable portfolio template for creative professionals to showcase their work.</p>
-                            <div class="project-tech">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
+
+                    <!-- RBLXXHEATER Script -->
+                    <div class="script-card reveal-up" data-category="game">
+                        <div class="script-header">
+                            <div class="script-title-area">
+                                <h3 class="script-title">RBLXXHEATER</h3>
+                                <span class="script-version">v2.0.1</span>
                             </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                            <div class="script-badges">
+                                <span class="script-badge hot">HOT</span>
+                                <span class="script-badge verified">VERIFIED</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card reveal-up" data-category="other">
-                        <div class="project-img">
-                            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="400" height="200" fill="#4A45B5"/>
-                                <circle cx="200" cy="100" r="70" fill="#F3F4F6"/>
-                                <path d="M170 80L210 100L170 120V80Z" fill="#6C63FF"/>
-                                <circle cx="200" cy="100" r="50" stroke="#6C63FF" stroke-width="5" fill="none"/>
-                            </svg>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Media Player</h3>
-                            <p class="project-description">A custom media player with playlist management, volume control, and skip functionality.</p>
-                            <div class="project-tech">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
+                        <div class="script-img">
+                            <div class="script-img-overlay">
+                                <div class="script-img-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                        <div class="script-content">
+                            <p class="script-description">The most powerful game enhancer for Roblox. Boost performance, unlock hidden features, and enhance your gameplay experience.</p>
+                            <div class="script-features">
+                                <h4>Features:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> FPS optimization</li>
+                                    <li><i class="fas fa-check"></i> Hidden feature unlocks</li>
+                                    <li><i class="fas fa-check"></i> Custom UI toolkit</li>
+                                    <li><i class="fas fa-check"></i> Performance monitoring</li>
+                                    <li><i class="fas fa-check"></i> Regular updates</li>
+                                </ul>
+                            </div>
+                            <div class="script-actions">
+                                <button class="btn-get-script" data-script="print('Initializing RBLXXHEATER v2.0.1...')\nwait(2)\nprint('RBLXXHEATER successfully loaded! Enjoy enhanced gameplay!')">
+                                    <i class="fas fa-download"></i> Get Script
+                                </button>
+                                <span class="script-stat"><i class="fas fa-download"></i> 25.7K</span>
+                                <span class="script-stat"><i class="fas fa-star"></i> 4.9/5</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="projects-more">
-                    <a href="#" class="btn-primary">View All Projects</a>
+
+                    <!-- Auto Fly Script -->
+                    <div class="script-card reveal-up" data-category="utility">
+                        <div class="script-header">
+                            <div class="script-title-area">
+                                <h3 class="script-title">Auto Fly Script</h3>
+                                <span class="script-version">v1.0.2</span>
+                            </div>
+                            <div class="script-badges">
+                                <span class="script-badge popular">POPULAR</span>
+                                <span class="script-badge verified">VERIFIED</span>
+                            </div>
+                        </div>
+                        <div class="script-img">
+                            <div class="script-img-overlay">
+                                <div class="script-img-icon">
+                                    <i class="fas fa-plane"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="script-content">
+                            <p class="script-description">Enable flying capabilities in any Roblox game. Smooth controls, adjustable speed, and undetectable by most anti-cheat systems.</p>
+                            <div class="script-features">
+                                <h4>Features:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Keyboard controls</li>
+                                    <li><i class="fas fa-check"></i> Adjustable flight speed</li>
+                                    <li><i class="fas fa-check"></i> Anti-detection measures</li>
+                                    <li><i class="fas fa-check"></i> Toggle on/off with keybind</li>
+                                    <li><i class="fas fa-check"></i> Works in most games</li>
+                                </ul>
+                            </div>
+                            <div class="script-actions">
+                                <button class="btn-get-script" data-script="print('Loading Auto Fly Script v1.0.2...')\nwait(1.5)\nprint('Auto Fly Script loaded! Press E to toggle flight.')\nprint('Use WASD to control direction and Q/E for altitude.')">
+                                    <i class="fas fa-download"></i> Get Script
+                                </button>
+                                <span class="script-stat"><i class="fas fa-download"></i> 18.9K</span>
+                                <span class="script-stat"><i class="fas fa-star"></i> 4.7/5</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -282,33 +337,30 @@
                     <div class="section-underline"></div>
                 </div>
                 <div class="contact-content">
-                    <div class="contact-text reveal-left">
-                        <p>
-                            I'm currently looking for new opportunities and my inbox is always open. 
-                            Whether you have a question or just want to say hi, I'll try my best to get back to you!
-                        </p>
+                    <div class="contact-text">
+                        <p>Need a custom script or have questions about my existing projects? Feel free to reach out through any of these channels.</p>
                         <div class="contact-info">
                             <div class="contact-item">
+                                <i class="fab fa-discord"></i>
+                                <span>Men0ast#8765</span>
+                            </div>
+                            <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <span>johndoe@example.com</span>
+                                <span>men0ast@rblx.dev</span>
                             </div>
                             <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <span>+1 (555) 123-4567</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>New York City, USA</span>
+                                <i class="fab fa-github"></i>
+                                <span>github.com/Men0ast</span>
                             </div>
                         </div>
                         <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
                         </div>
                     </div>
-                    <div class="contact-form-container reveal-right">
+                    <div class="contact-form-container">
                         <form id="contact-form" class="contact-form">
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -339,38 +391,41 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <a href="#hero">
-                        <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 5L30 15L20 25L10 15L20 5Z" fill="#6C63FF"/>
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L30 15L20 25L10 15L20 5Z" fill="#FF6B6B"/>
                             <path d="M20 15L30 25L20 35L10 25L20 15Z" fill="#4A45B5"/>
                         </svg>
-                        <span>Portfolio</span>
+                        <span>Men0ast</span>
                     </a>
                 </div>
                 <div class="footer-links">
                     <a href="#hero">Home</a>
                     <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
+                    <a href="#scripts">Scripts</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
                 </div>
             </div>
             <div class="footer-copyright">
-                <p>&copy; 2023 John Doe. All Rights Reserved.</p>
+                <p>&copy; 2023 Men0ast. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#hero" class="back-to-top" id="backToTop">
+    <!-- Notification for script copy -->
+    <div class="copy-notification" id="copyNotification">
+        <i class="fas fa-check-circle"></i> Script copied to clipboard!
+    </div>
+
+    <a href="#hero" id="backToTop" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
 </body>

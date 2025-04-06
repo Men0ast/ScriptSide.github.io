@@ -1,13 +1,47 @@
 /* 
   Responsive Stylesheet
-  Author: John Doe
-  Version: 1.0 
+  Author: Men0ast
+  Version: 2.0 
 */
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (max-width: 1400px) {
     h1 {
         font-size: 3rem;
+    }
+    
+    .cube-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .face {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .front {
+        transform: translateZ(90px);
+    }
+    
+    .back {
+        transform: rotateY(180deg) translateZ(90px);
+    }
+    
+    .right {
+        transform: rotateY(90deg) translateZ(90px);
+    }
+    
+    .left {
+        transform: rotateY(-90deg) translateZ(90px);
+    }
+    
+    .top {
+        transform: rotateX(90deg) translateZ(90px);
+    }
+    
+    .bottom {
+        transform: rotateX(-90deg) translateZ(90px);
     }
 }
 
@@ -21,6 +55,15 @@
     }
     .hero-content {
         gap: var(--space-lg);
+    }
+    
+    .scripts-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .badge-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
@@ -52,6 +95,11 @@
     }
     .hero-buttons {
         justify-content: center;
+    }
+    
+    .badge-container {
+        justify-content: center;
+        align-items: center;
     }
     
     /* About Section */
@@ -101,12 +149,12 @@
         width: 80%;
         max-width: 300px;
         height: 100vh;
-        background-color: white;
+        background-color: var(--dark-bg);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         transition: var(--transition);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
         z-index: 1000;
     }
     
@@ -120,6 +168,7 @@
     
     .menu-toggle.active .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
+        background-color: var(--primary-color);
     }
     
     .menu-toggle.active .bar:nth-child(2) {
@@ -128,16 +177,37 @@
     
     .menu-toggle.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--primary-color);
     }
     
-    /* Project Section */
-    .projects-grid {
+    /* Scripts Section */
+    .scripts-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .scripts-filter {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
     
     /* Contact Form */
     .contact-form {
         padding: var(--space-md);
+    }
+    
+    .script-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .script-stat {
+        margin-top: 5px;
     }
 }
 
@@ -169,7 +239,7 @@
         width: 100%;
     }
     
-    .projects-filter {
+    .scripts-filter {
         flex-direction: column;
         gap: var(--space-xs);
     }
@@ -192,5 +262,19 @@
         bottom: 20px;
         width: 40px;
         height: 40px;
+    }
+    
+    .script-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .script-badges {
+        align-self: flex-start;
+    }
+    
+    .btn-get-script {
+        width: 100%;
     }
 }

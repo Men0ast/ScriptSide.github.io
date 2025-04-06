@@ -1,7 +1,7 @@
 /**
  * Animation Effects
- * Author: John Doe
- * Version: 1.0
+ * Author: Men0ast
+ * Version: 2.0
  */
 
 // Initialize animations when document is ready
@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initRevealAnimations();
     initSkillBars();
     initTypewriterEffect();
+    initMatrixEffect();
+    initHackerTerminal();
 });
 
 // Reveal animations on scroll
@@ -97,111 +99,176 @@ function initTypewriterEffect() {
     }
 }
 
-// Smooth parallax effect for sections
-window.addEventListener('scroll', function() {
-    const scrollPosition = window.pageYOffset;
-    
-    // Parallax for hero section
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
-    }
-    
-    // Scale effect for project cards on scroll
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        const cardPosition = card.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+// Matrix effect for background
+function initMatrixEffect() {
+    // Create canvas for matrix effect in script cards
+    document.querySelectorAll('.script-img').forEach(imgContainer => {
+        const canvas = document.createElement('canvas');
+        canvas.classList.add('matrix-canvas');
+        canvas.width = imgContainer.offsetWidth;
+        canvas.height = imgContainer.offsetHeight;
+        imgContainer.appendChild(canvas);
         
-        if (cardPosition < windowHeight * 0.8 && cardPosition > -windowHeight * 0.2) {
-            const scale = 1 + ((windowHeight * 0.5 - cardPosition) / windowHeight) * 0.1;
-            card.style.transform = `scale(${Math.min(scale, 1.05)})`;
+        // Get context
+        const ctx = canvas.getContext('2d');
+        
+        // Characters to display
+        const characters = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const columns = canvas.width / 10;
+        const drops = [];
+        
+        // Initialize drops
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * -canvas.height);
         }
-    });
-});
-
-// Custom cursor effect
-document.addEventListener('DOMContentLoaded', function() {
-    // Create cursor elements if they don't exist
-    if (!document.querySelector('.cursor-dot')) {
-        const cursorDot = document.createElement('div');
-        cursorDot.classList.add('cursor-dot');
-        document.body.appendChild(cursorDot);
         
-        const cursorOutline = document.createElement('div');
-        cursorOutline.classList.add('cursor-outline');
-        document.body.appendChild(cursorOutline);
-        
-        // Add CSS for cursor elements
-        const style = document.createElement('style');
-        style.textContent = `
-            .cursor-dot, .cursor-outline {
-                pointer-events: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                transform: translate(-50%, -50%);
-                border-radius: 50%;
-                z-index: 9999;
-                transition: transform 0.1s;
-            }
-            .cursor-dot {
-                width: 8px;
-                height: 8px;
-                background-color: var(--primary-color);
-            }
-            .cursor-outline {
-                width: 40px;
-                height: 40px;
-                border: 2px solid var(--primary-color);
-                transition: transform 0.2s, width 0.3s, height 0.3s, border-color 0.3s;
-                opacity: 0.5;
-            }
-            a:hover ~ .cursor-outline, button:hover ~ .cursor-outline {
-                transform: translate(-50%, -50%) scale(1.5);
-                border-color: var(--primary-dark);
-                opacity: 0.8;
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Move cursor elements with mouse
-        document.addEventListener('mousemove', function(e) {
-            const cursorDot = document.querySelector('.cursor-dot');
-            const cursorOutline = document.querySelector('.cursor-outline');
+        // Draw matrix effect
+        function drawMatrix() {
+            // Semi-transparent black for fading effect
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            if (cursorDot && cursorOutline) {
-                cursorDot.style.left = e.clientX + 'px';
-                cursorDot.style.top = e.clientY + 'px';
+            // Set text color
+            const scriptCategory = imgContainer.closest('.script-card').getAttribute('data-category');
+            
+            if (scriptCategory === 'anticheat') {
+                ctx.fillStyle = '#FF6B6B';
+            } else if (scriptCategory === 'utility') {
+                ctx.fillStyle = '#4A45B5';
+            } else {
+                ctx.fillStyle = '#FFC857';
+            }
+            
+            ctx.font = '10px monospace';
+            
+            // Loop through drops
+            for (let i = 0; i < drops.length; i++) {
+                // Get random character
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
                 
-                // Add slight delay for outline for smoother effect
-                setTimeout(() => {
-                    cursorOutline.style.left = e.clientX + 'px';
-                    cursorOutline.style.top = e.clientY + 'px';
-                }, 100);
+                // Draw character
+                ctx.fillText(text, i * 10, drops[i] * 10);
+                
+                // Reset position or move drop
+                if (drops[i] * 10 > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                // Move drop
+                drops[i]++;
+            }
+        }
+        
+        // Start animation only when script card is in view
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                const matrixInterval = setInterval(drawMatrix, 60);
+                
+                // Store interval ID on element for cleanup
+                imgContainer.dataset.matrixInterval = matrixInterval;
+            } else {
+                // Clear interval when element is out of view
+                clearInterval(imgContainer.dataset.matrixInterval);
+            }
+        }, { threshold: 0.1 });
+        
+        observer.observe(imgContainer);
+    });
+}
+
+// Initialize terminal animation
+function initHackerTerminal() {
+    const terminal = document.querySelector('.terminal-body');
+    
+    if (terminal) {
+        // Start typing animation when terminal is in view
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                const lines = terminal.querySelectorAll('.line:not(.blink)');
+                let currentLine = 0;
+                
+                // Hide all lines initially except the first
+                lines.forEach((line, index) => {
+                    if (index > 0) line.style.display = 'none';
+                });
+                
+                // Show lines one by one with a typing effect
+                function showNextLine() {
+                    if (currentLine < lines.length) {
+                        const line = lines[currentLine];
+                        line.style.display = 'block';
+                        
+                        // Simulate typing for the current line
+                        const text = line.textContent;
+                        line.textContent = '';
+                        let charIndex = 0;
+                        
+                        function typeLine() {
+                            if (charIndex < text.length) {
+                                line.textContent += text.charAt(charIndex);
+                                charIndex++;
+                                setTimeout(typeLine, Math.random() * 50 + 10);
+                            } else {
+                                currentLine++;
+                                // Delay before showing next line
+                                setTimeout(showNextLine, 300);
+                            }
+                        }
+                        
+                        typeLine();
+                    }
+                }
+                
+                showNextLine();
+                observer.unobserve(entries[0].target);
+            }
+        }, { threshold: 0.5 });
+        
+        observer.observe(terminal);
+    }
+}
+
+// Script card hover effects
+document.addEventListener('DOMContentLoaded', function() {
+    const scriptCards = document.querySelectorAll('.script-card');
+    
+    scriptCards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Calculate rotation angle based on mouse position
+            const xRotation = (y - rect.height / 2) / 10;
+            const yRotation = (x - rect.width / 2) / -10;
+            
+            // Apply 3D transform
+            card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) translateZ(10px)`;
+            
+            // Add glare effect
+            const glare = card.querySelector('.script-img-overlay');
+            if (glare) {
+                const glareX = (x / rect.width) * 100;
+                const glareY = (y / rect.height) * 100;
+                glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 80%)`;
             }
         });
         
-        // Change cursor effect on interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, input, textarea, .project-card');
-        interactiveElements.forEach(element => {
-            element.addEventListener('mouseenter', function() {
-                const cursorOutline = document.querySelector('.cursor-outline');
-                if (cursorOutline) {
-                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                    cursorOutline.style.borderColor = 'var(--primary-dark)';
-                    cursorOutline.style.opacity = '0.8';
+        card.addEventListener('mouseleave', function() {
+            // Reset transform and glare effect
+            card.style.transform = '';
+            const glare = card.querySelector('.script-img-overlay');
+            if (glare) {
+                const category = card.getAttribute('data-category');
+                
+                if (category === 'anticheat') {
+                    glare.style.background = 'linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(74, 69, 181, 0.2))';
+                } else if (category === 'utility') {
+                    glare.style.background = 'linear-gradient(135deg, rgba(74, 69, 181, 0.2), rgba(255, 107, 107, 0.2))';
+                } else {
+                    glare.style.background = 'linear-gradient(135deg, rgba(255, 200, 87, 0.2), rgba(74, 69, 181, 0.2))';
                 }
-            });
-            
-            element.addEventListener('mouseleave', function() {
-                const cursorOutline = document.querySelector('.cursor-outline');
-                if (cursorOutline) {
-                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-                    cursorOutline.style.borderColor = 'var(--primary-color)';
-                    cursorOutline.style.opacity = '0.5';
-                }
-            });
+            }
         });
-    }
+    });
 });

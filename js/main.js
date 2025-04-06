@@ -1,7 +1,7 @@
 /**
  * Main JavaScript File
- * Author: John Doe
- * Version: 1.0
+ * Author: Men0ast
+ * Version: 2.0
  */
 
 // Wait for the DOM to be fully loaded
@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initPageLoader();
     initNavigation();
     initScrollEvents();
-    initProjectFilters();
+    initScriptFilters();
     initContactForm();
+    initScriptCopyButtons();
 });
 
 // Initialize page loader
@@ -127,10 +128,10 @@ function updateActiveNavOnScroll() {
     });
 }
 
-// Initialize project filtering
-function initProjectFilters() {
+// Initialize script filtering
+function initScriptFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const scriptCards = document.querySelectorAll('.script-card');
     
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -142,7 +143,7 @@ function initProjectFilters() {
             
             const filterValue = this.getAttribute('data-filter');
             
-            projectCards.forEach(card => {
+            scriptCards.forEach(card => {
                 if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                     card.style.display = 'block';
                     setTimeout(() => {
@@ -157,6 +158,41 @@ function initProjectFilters() {
                     }, 300);
                 }
             });
+        });
+    });
+}
+
+// Initialize script copy buttons
+function initScriptCopyButtons() {
+    const copyButtons = document.querySelectorAll('.btn-get-script');
+    const notification = document.getElementById('copyNotification');
+    
+    copyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const scriptText = this.getAttribute('data-script');
+            
+            // Create temporary textarea element to copy text
+            const textarea = document.createElement('textarea');
+            textarea.value = scriptText;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'absolute';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            
+            // Select and copy text
+            textarea.select();
+            document.execCommand('copy');
+            
+            // Remove temporary element
+            document.body.removeChild(textarea);
+            
+            // Show notification
+            notification.classList.add('active');
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('active');
+            }, 3000);
         });
     });
 }
